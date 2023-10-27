@@ -1,0 +1,60 @@
+{
+    "title_block_societes": "<h2>Nos restaurants</h2><p>Lorem ipsum dolor sit amet consectetur, adipiscing elit. Praesent pulvinar libero in lectus scelerisque sed elementum, odio ornare. Donec mollis ipsum sit amet venenatis ultricies.</p>",
+    "agence": [
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Bordeaux",
+            "adresse" : "53 Rue Saint-Rémi, 33000 Bordeaux",
+            "telephone" : "05 56 44 90 00",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Saint Rémi.jpg",
+            "map" : {"longitude" :44.84127497210711, "latitude": -0.573180701715828}
+        },
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Bordeaux",
+            "adresse" : "6 Cr Georges Clemenceau, 33000 Bordeaux",
+            "telephone" : "05 56 44 90 00",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Clémenceau.jpg",
+            "map" : {"longitude" :44.84211565806503, "latitude": -0.5796102893946505}
+        },
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Bordeaux",
+            "adresse" : "11 Pl. de Stalingrad, 33100 Bordeaux",
+            "telephone" : "05 57 61 53 30",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Stalingrad.jpg",
+            "map" : {"longitude" :44.840114458287886, "latitude": -0.5592258133908917}
+        },
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Bordeaux",
+            "adresse" : "50 Rue du Maréchal Joffre, 33000 Bordeaux",
+            "telephone" : "05 56 44 68 97",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Maréchal Joffre.jpeg",
+            "map" : {"longitude" :44.83504036702826, "latitude": -0.57829071044025}
+        },
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Bordeaux",
+            "adresse" : "Quai Armand Lalande, 33300 Bordeaux",
+            "telephone" : "05 56 04 20 00",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Quai Armand Lalande.jpg",
+            "map" : {"longitude" :44.86518196972521, "latitude": -0.5579567713078734}
+        },
+
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Paris",
+            "adresse" : "14 Place de la Bastille, 75011 Paris",
+            "telephone" : "01 73 71 12 92",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/Bastille.jpg",
+            "map" : {"longitude" :48.85388643779795, "latitude": 2.3699097731633274}
+        }
+    ]
+}

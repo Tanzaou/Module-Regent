@@ -1,0 +1,251 @@
+$bradius: 5px;
+$fonce:#121212;
+    
+    @mixin set-iframe {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+    @mixin p-style {
+    margin: 0;
+    padding: 5px;
+    font-size: 0.7em;
+}
+
+    @mixin img-style {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: $bradius;
+    }
+
+
+
+body {
+    background: #efefef;
+  }
+
+span {
+    font-weight: bold;
+    }
+
+a {
+    color: black;
+
+    &:hover {
+        text-decoration: none;
+        opacity: 0.5;
+    }
+}
+
+  h4 {
+    font-size: 1.2em;
+    text-align: left;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+  hr {
+    width: 100px;
+    height: 3px;
+    background: grey;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 3em;
+  }
+
+  p {
+    color: black;
+  }
+  
+  .societes {
+    background: white;
+    padding: 2% 5%;
+    margin: 5%;
+    text-align: center;
+
+    .dcol {
+        margin-top: 4%;
+        border: 1px solid $fonce;
+        border-radius: $bradius;
+
+        .liste {
+            background: #ebebeb;
+            border-radius: $bradius;
+
+            .recherche {
+                padding: 2%;
+
+                .col-md-6 {
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+
+
+                    p {
+                        margin: 0;
+                    }
+                }
+
+                .champ {
+
+                    background: white;
+                    border-radius: $bradius;
+                    border: 1px solid $fonce;
+                    position: relative;
+                    input {
+                        border: none;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+
+                        &::after {
+                            position: absolute;
+                            left: 5px;
+                            top: 0;
+                            height: 100%;
+                            width: 20px;
+                            content: "\f095";
+                            font-family: "Font Awesome 6 Free";
+                        }
+                    }
+                }
+            }
+
+            .column {
+                height: 60vh;
+                overflow-y: scroll;
+                .soccard {
+                    border-radius: $bradius;
+                    border: 1px solid $fonce;
+                    background: #fff;
+                    padding: 3%;
+                    margin: 2%;
+                    min-height: 20vh;
+                    transition: min-height 0.3s ease;
+
+                    &.active {
+                        min-height: 30vh;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        filter: brightness(0.9);
+                    }
+
+                    .photo {
+                        img {
+                            @include img-style;
+                        }
+                    }
+
+                    .infos {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        .coord {
+                            text-align: left;
+
+                            i {
+                                margin-right: 5px;
+                                color: $fonce;
+                            }
+
+                            p {
+                            @include p-style;
+                            }
+                        }
+                    }
+
+                    .mobile-map {
+
+                        display: none;
+                        iframe {
+                            @include set-iframe;
+                            min-height: 35vh;
+                        }
+                    }
+                }
+            }
+        }
+
+        .map {
+           // height: 100%;
+            width: 100%;
+            padding: 0;
+
+            p {
+                @include p-style;
+            }
+
+            i {
+            margin-right: 5px;
+            }
+
+            img {
+                @include img-style;
+                margin-bottom: 5%;
+            }
+            iframe {
+                @include set-iframe;
+            }
+        }
+    } 
+  }
+
+@media (max-width: 992px){
+
+    .societes {
+        .dcol {
+            flex-direction: column;
+            .liste {
+                max-width: 100%;
+                flex: 0 0 100%;
+                .recherche {
+                    .col-md-6 {
+                        p {
+                            margin-top: 4%;
+                        }
+                    }
+                }
+                    .column {
+                        .soccard {
+                            .infos {
+                                padding: 3%;
+                            }
+
+                            .mobile-map {
+                                display: block;
+                                padding: 3% 0% 0% 0%;
+
+                                iframe {
+                                    border-radius: $bradius;
+                                }
+                            }
+                        }
+                    }
+
+    
+            
+            }
+
+            .map {
+                display: none;
+            }
+        }
+    }
+
+
+}

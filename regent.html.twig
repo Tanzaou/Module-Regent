@@ -1,0 +1,50 @@
+<section>
+    <div class="societes">
+    <div class="title-societes">
+                {{ title_block_societes|raw }}
+                </div>
+        <div class="dcol row">
+            <div class="liste col-md-6">
+                <div class="recherche row">
+                    <div class="champ col-md-6">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input id="oSaisie" name="oSaisie" type="text" placeholder="Rechercher" class="form-control" aria-label="Saisie de villes">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Nombre de restaurants : <strong>{{ nombreDeRestaurants }}</strong></p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    {% for restaurant in restaurants %}
+                    <div class="soccard row">
+                        <div class="col-md-3 photo">
+                        {% if item.image %}
+                                            {% media item.image, 'medium' %}
+                                        {% else %}
+                                            <img src="{{ asset('build/images/empty.png') }}" alt="{{ 'vistalid.image.empty_data'|trans({}, 'new_template') }}">
+                                        {% endif %}
+                        </div>
+                        <div class="col-md-9 infos">
+                            <h4 class="nom">{{ restaurant.nom }}</h4>
+                            <h4 class="ville" id="{{ restaurant.ville }}">{{ restaurant.ville }}</h4>
+                            <hr>
+                            <div class="coord row">
+                                <p class="col-md-12"><i class="fa-solid fa-location-dot"></i>{{ restaurant.adresse }}</p>
+                                <p class="col-md-12"><i class="fas fa-phone"></i><a href="telto:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a></p>
+                                <p class="col-md-12"><i class="fa-solid fa-envelope"></i><a href="mailto:{{ restaurant.email }}">{{ restaurant.email }}</a></p>
+                            </div>
+                        </div>
+                        <div class="mobile-map col-md-12">
+                            <iframe src="{{ restaurant.googleMapUrl }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="map col-md-6">
+                <iframe src="{{ googleMapUrl }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
