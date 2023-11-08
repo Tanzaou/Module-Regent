@@ -8,7 +8,7 @@
                 <div class="recherche row">
                     <div class="champ col-md-6">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input id="oSaisie" name="oSaisie" type="text" placeholder="Rechercher" class="form-control" aria-label="Saisie de villes">
+                        <input id="search" name="search" type="text" placeholder="Rechercher" class="form-control" aria-label="Saisie de villes">
                     </div>
                     <div class="col-md-6">
                         <p>Nombre de restaurants : <strong>{{ nombreDeRestaurants }}</strong></p>
@@ -43,7 +43,6 @@
                 </div>
             </div>
             <div class="map col-md-6">
-                <iframe src="{{ googleMapUrl }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
