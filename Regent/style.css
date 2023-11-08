@@ -42,6 +42,25 @@ p {
   color: black;
 }
 
+ul#ui-id-1 {
+  background: #fff;
+  border: 1px solid #c5c5c5;
+  padding: 0;
+}
+ul#ui-id-1 li.ui-menu-item {
+  list-style: none;
+  padding: 5px 5px 5px 15px;
+}
+ul#ui-id-1 li.ui-menu-item:hover {
+  background: blue;
+  color: white;
+}
+
+.form-control {
+  font-size: 1.1em;
+  font-weight: normal;
+}
+
 .societes {
   background: white;
   padding: 2% 5%;

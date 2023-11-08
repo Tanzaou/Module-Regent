@@ -46,7 +46,15 @@
             "photo" : "/Regent/Quai Armand Lalande.jpg",
             "map" : {"longitude" :44.86518196972521, "latitude": -0.5579567713078734}
         },
-
+        {
+            "restaurant" : "Bistro Régent",
+            "ville" : "Mérignac",
+            "adresse" : "48 Rue du Jard, 33700 Mérignac",
+            "telephone" : "05 56 47 03 31",
+            "email" : "johndoe@gmail.com",
+            "photo" : "/Regent/régent mérignac.jpg",
+            "map" : {"longitude" :44.84720498909561, "latitude": -0.6386740749637385}
+        },
         {
             "restaurant" : "Bistro Régent",
             "ville" : "Paris",
