@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }) .addTo(map); 
     map.setView([46.77084692888879, 2.6244369922816846], 0);
+
         // Récupérez les éléments HTML où vous voulez afficher les données JSON
         const titleBlockSocietes = document.getElementById('title_block_societes');
         const agencesContainer = document.getElementById('agences');
@@ -51,13 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="col-md-12"><i class="fa-solid fa-envelope"></i><a href="mailto:${agence.email}">${agence.email}</a></p>
                             </div>
                         </div>
-                        <div id="map" class="mobile-map col-md-12">
-                    </div>
 
 
                     `;
-                    agencesContainer.appendChild(agenceDiv);
 
+                    agencesContainer.appendChild(agenceDiv);
                     // Incrémentez le compteur à chaque création d'agence
                     compteur++;
                     // Mettez à jour le contenu de l'élément HTML du compteur
@@ -74,24 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 });
 
-/*
-
-                // Écoutez les saisies dans le champ de recherche
-$("#search").on("input", function() {
-    const searchTerm = $(this).val().trim().toLowerCase();
-    const agences = document.querySelectorAll('.soccard');
-
-    agences.forEach(agence => {
-        const ville = agence.querySelector('.ville').textContent.toLowerCase();
-        if (ville.includes(searchTerm)) {
-            agence.style.display = "flex";
-        } else {
-            agence.style.display = "none";
-        }
-    });
-});
-
-*/
 
 // Écoutez les saisies dans le champ de recherche
 $("#search").on("input", function() {
@@ -103,11 +84,6 @@ $("#search").on("input", function() {
 
     agences.forEach(agence => {
         const ville = agence.querySelector('.ville').textContent.toLowerCase();
-     /*   const latitude = parseFloat(agence.dataset.latitude);
-        const longitude = parseFloat(agence.dataset.longitude);
-
-        // Calcul de la distance en utilisant la formule Haversine
-        const distance = calculateDistance(searchCity, latitude, longitude);*/
 
         if (ville.includes(searchTerm) || distance < distanceMax) {
             agence.style.display = "flex";
@@ -138,44 +114,14 @@ $("#search").on("autocompleteselect", function(event, ui) {
     });
 });
 });
-/*
-function calculateDistance(searchCity, lat2, lon2) {
-    // Coordonnées géographiques de la ville recherchée (par exemple, Paris)
-    const cityCoordinates = cityCoordinatesMap[searchCity];
-    if (!cityCoordinates) {
-        return Infinity; // Ville inconnue, distance infinie
-    }
-    
-    const lat1 = cityCoordinates.latitude;
-    const lon1 = cityCoordinates.longitude;
-
-    // Calcul de la distance en utilisant la formule Haversine
-    const R = 6371; // Rayon de la Terre en km
-    const dLat = deg2rad(lat2 - lat1);
-    const dLon = deg2rad(lon2 - lon1);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
-    return distance;
-}
-
-function deg2rad(deg) {
-    return deg * (Math.PI / 180);
-}
-
-// Coordonnées géographiques des villes
-const cityCoordinatesMap = {
-    "paris": { latitude: 48.8566, longitude: 2.3522 }, // Exemple pour Paris
-    "bordeaux": { latitude: 44.8377, longitude: -0.5791 },
-    // Ajoutez les coordonnées d'autres villes au besoin
-};*/
-
             })
             .catch(error => console.error('Erreur lors de la récupération des données :', error));
+
 
                 // Écoutez les clics sur l'élément contenant les agences
     agencesContainer.addEventListener("click", (event) => {
         // Trouvez l'élément parent "soccard" en remontant dans la hiérarchie
+        const mapDiv = document.getElementById('map');
         let target = event.target;
         while (target !== this && !target.classList.contains("soccard")) {
             target = target.parentElement;
@@ -186,15 +132,20 @@ const cityCoordinatesMap = {
             const soccards = agencesContainer.querySelectorAll(".soccard");
             soccards.forEach(function(soccard) {
                 soccard.classList.remove("active");
-            });
             // Ajoutez la classe "active" uniquement à l'élément cliqué
             target.classList.add("active");
-            event.currentTarget.map.setView([target.dataset.longitude, target.dataset.latitude], 16);
-          //  marker.openPopup(map);
+
+            
+            if (window.innerWidth < 992) {
+                target.appendChild(mapDiv);
+            }
+            
+           event.currentTarget.map.setView([target.dataset.longitude, target.dataset.latitude], 16);
           
           const column = document.querySelector(".column");
         target.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
-        }
+        })
+    }
     });
 
     jQuery.ui.autocomplete.prototype._resizeMenu = function () {

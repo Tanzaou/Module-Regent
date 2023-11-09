@@ -243,23 +243,33 @@ a {
                 }
                     .column {
                         .soccard {
+                            &:active {
+                                .mobile-map {
+                                    display: block;
+                                    padding: 3% 0% 0% 0%;
+                                    height: 50vh;
+                                }
+                            }
                             .infos {
                                 padding: 3%;
+
+
                             }
 
-                            .mobile-map {
-                                display: block;
-                                padding: 3% 0% 0% 0%;
-
-                                iframe {
-                                    border-radius: $bradius;
+                            .photo {
+                                img {
+                                    max-height: 30vh;
                                 }
+                            }
+
+                            #map {
+                                display: block;
+                                height: 30vh;
+                                min-width: 100%;
+                                margin-top: 4%;
                             }
                         }
                     }
-
-    
-            
             }
 
             .map {
